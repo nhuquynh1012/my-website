@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Thư Thư Nhó</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#ffe6f2;
+    overflow:hidden;
+}
+.flying-icon{
+    position:absolute;
+    font-size: 24px;
+    opacity:0.8;
+    animation:fly 12s linear infinite;
+    z-index:1;
+    user-select:none;
+}
+
+/* Trang intro */
+#intro{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(45deg,#ff69b4,#ffb6c1);
+    color:white;
+    cursor:pointer;
+    text-align:center;
+}
+#heart{
+    font-size:100px;
+    animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.15)}
+}
+
+/* Trang thư */
+#letter-page{
+    display:none;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+#letter-content{
+    height: calc(70vh - 120px); /* trừ tiêu đề + padding */
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#flying-bg{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+#letter{
+    position:relative;
+    z-index:2;
+}
+
+#letter{
+    position:relative;
+    z-index:2;
+}
+
+/* Ảnh bay nền */
+.flying-image{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    opacity:0.8;
+    animation:fly 14s linear infinite;
+}
+
+.flying-image{
+    z-index:1;
+}
+
+@keyframes fly{
+    from{transform:translateY(100vh) rotate(0deg)}
+    to{transform:translateY(-120vh) rotate(360deg)}
+}
+
+/* Lá thư */
+#letter{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:600px;
+    height:70vh;              /* 🔥 khung cố định */
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,.2);
+    text-align:left;
+    font-size: clamp(14px, 3vw, 18px);
+    line-height:1.6;
+    overflow:hidden;          /* 🔒 không cho khung phình */
+}
+
+img{
+    max-width:100%;
+    border-radius:10px;
+    margin:10px 0;
+}
+audio{display:none;}
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    #letter {
+        max-width: 90%;
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="flying-bg"></div>
+
+<div id="intro" onclick="showLetter()">
+    <div id="heart">❤️</div>
+    <p>Chạm vào trái tim để mở thư nha</p>
+</div>
+
+<div id="letter-page">
+    <div id="letter">
+        <div id="letter">
+    <h2>Người Simp Thư nhất gửi Thư💖</h2>
+
+    <div id="letter-content">
+        <p id="typing"></p>
+    </div>
+
+    <h5>💖💖</h5>
+</div>
+        
+    </div>
+</div>
+
+<!-- NHẠC PHẢI LÀ FILE MP3 -->
+<audio id="bg-music" loop>
+    <source src="../nhac/Quang Hùng MasterD - 'Chất Gây Hại' (ft. Low G) - Official Audio  BLOOMEVER Album 'Bonus Track'.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* Hiệu ứng gõ chữ */
+const text = "Hi em🫡 ,Đây là lần thứ hai chị viết cho em, lần này theo một cách khác, vì chị nghĩ có lẽ chưa ai từng làm với em như vậy hehe😁😁. Gần đây tụi mình cãi nhau khá nhiều, chỉ trong một tháng mà đã bốn lần. Chị biết có thể giờ em không còn nhiều cảm xúc với chị🫩, nhưng việc em vẫn kiên nhẫn nói chuyện, vẫn chịu giải thích, đôi lúc khiến chị nghĩ rằng em có thích chị một chút. Rồi sau đó, vì nhiều thứ tác động, chị lại tự trách mình đa tình. Em hay nói chị nghĩ nhiều, có lẽ đúng. Nhưng thật ra chị lại là người khá vô tâm, chỉ là những gì chị để tâm thì lại dồn hết vào em. Chị tin em, nhưng có những lúc chị không tin vào cảm xúc của chính mình. Chị sợ rất sợ mình tự đa tình huhu 🥹 🥹, chị không thích cảm giác đó. Chị cũng sợ khi em nói chuyện với ấy ấy ngày càng nhiều, dần dần tìm thấy những điều thu hút em hơn vì ngta hiểu rõ em🤧🤧, thì chị sẽ trở nên rất nhỏ, rất mờ nhạt, rồi một ngày nào đó em sẽ quên mất chị😵😭.Có lẽ vì những nỗi sợ đó mà chị hay khó chịu, hay nhạy cảm với những chuyện không đáng👉👈. Đến khi em mệt, em khóc, dù em nói không phải do chị, chị vẫn nghĩ mình đã vô tình chạm vào một tổn thương nào đó của em. Chị thật lòng xin lỗi😵‍💫.Chị thích em🖤, thích đến mức muốn thay đổi để có thể đi xa hơn cùng em. Nhưng chị cũng hiểu, nếu chỉ một mình chị cố gắng thì không đủ. Chị không tỏ tình, chỉ muốn hỏi em một điều rất thật lòng: em có nghĩ mối quan hệ này có thể phát triển thành yêu không? Dù câu trả lời là gì, chị vẫn tôn trọng.  Còn việc nếu em sợ yêu sẽ làm em trở về nỗi sợ cũ những tổn thương cũ thì việc đó em cứ yên tâm khẳng định với em dù có bất cứ chuyện gì xãy ra em sẽ không bao giờ phải chịu lại những tổn thương ngày đó💩💩. Chả hiểu sao nữa thật lòng chị chỉ muốn mang cho em những điều tốt đẹp nhất 🥳🥳. Cuối cùng, chúc em một Valentine thật ngọt ngào🤗🤗. Chị hy vọng năm sau có thể đón Valentine cùng em với một thân phận xịn hơn🤪🤪.❤️";
+let i = 0;
+function typeText(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 100);
+    }
+}
+const icons = ['💖','❤️','✨','💘','💞','💗','🌸','😡','😠','🤬','😤','🥹','😢','😭','💖','❤️','💘','💝','💞','💗','💓','💟','😍','🥰'];
+
+/* Ảnh bay */
+const images = [
+    '../anh/z7408061178662_a8329e76e6ad1869e97b5cb4dc70a93c.jpg',
+    '../anh/z7408061181284_7883157718e618fc3a834f442e99eda7.jpg',
+    '../anh/z7408061181396_e3f3e761aef33e8482f825714991bda0.jpg',
+    '../anh/z7408061185605_bfec7d82cb1ee658fcd6b2b22e326f7e.jpg',
+    '../anh/z7408061187738_ca9b057757127917cc3fbc11a25eb8e7.jpg',
+    '../anh/z7408061188546_a3cf99bb39af158488bcb282e5bfa1e5.jpg',
+    '../anh/z7408061192050_daca73360506623cbcf5e404e4975dce.jpg',
+    '../anh/z7408061193940_c36b915683862934c771756c1bf65bb7.jpg',
+    '../anh/z7408063292964_3f09f8ec16724da3fac722ae48458b37.jpg',
+    '../anh/0a889335-af99-4eac-b771-739e237be3ef.jpg',
+    '../anh/3f292681-2c57-4e50-8f1d-2b9c1f05aed0.jpg',
+    '../anh/4b01298c-7d19-457c-b0c9-9400f40c051d.jpg',
+    '../anh/6c6893d7-aefd-412b-9835-39dbe53dccad.jpg',
+    '../anh/7d0a1a4b-705a-462f-b949-fef5d176be6a.jpg',
+    '../anh/93c502e8-d87a-4137-b12a-72e385560717.jpg',
+    '../anh/479cb90d-0af1-4e75-810f-21075cf8ffaf.jpg',
+    '../anh/505cb990-99d8-443e-a905-0f7b7b2085a7.jpg',
+    '../anh/762f5141-7ce6-4bc6-95fd-78886d0a10b8.jpg',
+    '../anh/18492f5e-3f8e-44ca-bf97-0e3fe913f652.jpg',
+    '../anh/35802618-739d-46ae-aa6b-f8a457ca1465.jpg',
+    '../anh/b5f0e8f0-5421-48d1-9f41-b61ad3f37157.jpg',
+    '../anh/cf27512f-d009-4539-8eb7-0b03c3644451.jpg',
+    '../anh/1a37016e-580c-4c4f-bf55-3e58b792a1b8.jpg',
+    '../anh/001fa804-0624-4d14-baf1-0986e38c8363.jpg',
+    '../anh/3ba79069-9b34-40b7-8a10-f4b2b8933b5d.jpg',
+    '../anh/4b01298c-7d19-457c-b0c9-9400f40c051d.jpg',
+    '../anh/4f5e823e-92d0-44b7-adda-51e9f6f90378.jpg',
+    '../anh/6f4004f5-5f4a-4501-90d3-0f6503b51af8.jpg',
+    '../anh/9fd6bbef-2b13-4497-9ad2-6732187d8799.jpg',
+    '../anh/34c47dae-8e1c-4429-8361-c537a8290d9c.jpg',
+    '../anh/67c7c46e-721c-449c-ad24-bdbb8cadbba7.jpg',
+    '../anh/71f2b853-00fe-4128-83ea-1712673b6a4d.jpg',
+    '../anh/85deb187-a580-457f-a2fe-e68d94a7d537.jpg',
+    '../anh/778cab44-3dde-4287-9637-f4eae84e2656.jpg',
+    '../anh/666025a6-ae06-4ce1-abb1-e41c0ac055db.jpg',
+    '../anh/a3314b88-e43b-4983-8af1-b87bce9b4bec.jpg',
+    '../anh/ab38d8b8-649c-4325-80ff-fe69af818292.jpg',
+    '../anh/ae82c637-9737-40aa-8a48-48ab30b28797.jpg',
+    '../anh/b51f7fb8-3a73-42dd-aad1-6956a05f341e.jpg',
+    '../anh/b7943883-e7a0-4ebe-83df-32ff87965db8.jpg',
+    '../anh/cd97962e-c91e-48bd-bca3-a5713f6a5918.jpg',
+    '../anh/ce8303a0-69c8-4209-b14e-6bea69fa364c.jpg',
+    '../anh/d93c89ab-9102-420b-8f8c-a32d2b2d3e0d.jpg',
+    '../anh/fb07c133-d942-4d6a-9488-e80b2d4c335e.jpg',
+    '../anh/fcff440d-bc5e-42fb-b237-aef184fb83ae.jpg',
+    '../anh/1.jpg',
+    '../anh/2.jpg',
+    '../anh/3.jpg',
+    '../anh/4.jpg',
+    '../anh/5.jpg',
+    '../anh/6.jpg',
+    '../anh/7.jpg',
+    '../anh/8.jpg',
+    '../anh/9.jpg',
+    '../anh/10.jpg',
+    '../anh/11.jpg',
+    '../anh/12.jpg',
+    '../anh/13.jpg',
+    '../anh/14.jpg',
+    '../anh/15.jpg',
+    '../anh/16.jpg'
+];
+
+function createFlyingImage(){
+    const img = document.createElement('div');
+    img.className = 'flying-image';
+
+    const size = Math.random() *  60 + 120;
+    img.style.width = size + 'px';
+    img.style.height = size + 'px';
+
+    img.style.backgroundImage =
+        `url(${images[Math.floor(Math.random()*images.length)]})`;
+
+    img.style.left = Math.random() * 100 + 'vw';
+    img.style.top = '100vh';
+
+    document.getElementById('flying-bg').appendChild(img);
+
+    setTimeout(()=>img.remove(),14000);
+}
+function createFlyingIcon(){
+    const icon = document.createElement('div');
+    icon.className = 'flying-icon';
+
+    // random icon
+    icon.textContent = icons[Math.floor(Math.random()*icons.length)];
+
+    // random size
+    const size = Math.random() * 16 + 20;
+    icon.style.fontSize = size + 'px';
+
+    // random vị trí
+    icon.style.left = Math.random() * 100 + 'vw';
+    icon.style.top = '100vh';
+
+    document.getElementById('flying-bg').appendChild(icon);
+
+    setTimeout(()=>icon.remove(),12000);
+}
+
+let flyingInterval;
+
+function showLetter(){
+    document.getElementById('intro').style.display='none';
+    document.getElementById('letter-page').style.display='block';
+    document.getElementById('bg-music').play();
+    typeText();
+
+    flyingInterval = setInterval(() => {
+    createFlyingImage();
+    createFlyingIcon();
+}, 2000);
+
+}
+</script>
+
+</body>
+
+</html>
